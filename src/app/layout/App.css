@@ -12,6 +12,12 @@
     background-color: black;
 }
 
+.piece {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: 80px 80px 80px 80px 80px 80px 80px 80px;
