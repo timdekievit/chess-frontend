@@ -1,4 +1,5 @@
 import React from 'react';
+import Draggable from 'react-draggable';
 
 interface Props {
     pieceType: string;
@@ -8,9 +9,11 @@ interface Props {
 function Piece(props: Props) {
     if (props.pieceType !== undefined) {
         return (
-            <div className="piece" >
-                <img src={`/assets/chess-pieces/${props.pieceType}.png`} />
-            </div>
+            <Draggable>
+                <div className="piece" >
+                    <img src={`/assets/chess-pieces/${props.pieceType}.png`} />
+                </div>
+            </Draggable>
         )
     }
     else {
