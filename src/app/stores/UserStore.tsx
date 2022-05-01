@@ -26,6 +26,14 @@ export default class UserStore {
         }
     }
 
+    register = async (creds: UserFormValues) => {
+        try {
+            console.log(creds);
+        } catch (error) {
+            throw error;
+        }
+    }
+
 
 
 
