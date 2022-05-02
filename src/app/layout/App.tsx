@@ -1,5 +1,4 @@
 import './App.css';
-import { Chessboard } from 'react-chessboard';
 import Board from './Board';
 import React, { useEffect } from 'react';
 import Homepage from '../../features/home/Home';
@@ -8,7 +7,7 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Routes
+  Switch,
 } from "react-router-dom";
 import LoginForm from '../../features/home/users/LoginForm';
 import RegisterForm from '../../features/home/users/RegisterForm';
@@ -16,7 +15,7 @@ import { useStore } from '../stores/Store';
 
 function App() {
 
-  const {commonStore, userStore} = useStore();
+  const { commonStore, userStore } = useStore();
   useEffect(() => {
     if (commonStore.token) {
       userStore.getUser().finally(() => commonStore.setAppLoaded())
@@ -29,12 +28,20 @@ function App() {
 
   return (
     <section className='container'>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="chess" element={<Board />} />
-        <Route path="login" element={<LoginForm />} />
-        <Route path="register" element={<RegisterForm />} />
-      </Routes>
+
+      <Route exact path='/' component={Homepage} />
+
+      <Route path={'/(.+)'}
+        render={() => (
+          <>
+            <Switch>
+              <Route exact path='/chess' component={Board} />
+              <Route path="/login" component={LoginForm} />
+              <Route path="/register" component={RegisterForm} />
+            </Switch>
+          </>
+        )}
+      />
     </section>
   );
 }
