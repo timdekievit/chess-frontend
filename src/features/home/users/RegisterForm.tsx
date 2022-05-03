@@ -7,7 +7,7 @@ export default observer(function RegisterForm() {
     const {userStore} = useStore();
     return (
         <Formik
-            initialValues={{displayName: '', email: '', password: '', error: null}}
+            initialValues={{displayName: '', email: '', password: '', username: '', error: null}}
             onSubmit={(values, {setErrors}) => userStore.register(values).catch(error => 
                 setErrors({error}))}
         >
@@ -15,6 +15,7 @@ export default observer(function RegisterForm() {
                 <Form onSubmit={handleSubmit} autoComplete='off'>
                     <h2 color='teal' >Register</h2>
                     <input name='displayName' value={values.displayName} onChange={handleChange} placeholder='DisplayName' />
+                    <input name='username' value={values.username} onChange={handleChange} placeholder='username' />
                     <input type='email' name='email' value={values.email} onChange={handleChange} placeholder='Email' />
                     <input type='password' value={values.password} name='password' onChange={handleChange} placeholder='Password'/>
                     <ErrorMessage  
