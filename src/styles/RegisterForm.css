@@ -31,8 +31,8 @@ button {
     margin-left: 10%;
   }
 
-#LoginForm {
-    height: 16em;
+#RegisterForm {
+    height: 23em;
     width: 20em;
     margin: auto;
     background-color:rgb(233, 233, 192);
