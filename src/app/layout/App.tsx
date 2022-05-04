@@ -1,4 +1,4 @@
-import './App.css';
+import '../../styles/App.css'
 import Board from './Board';
 import React, { useEffect } from 'react';
 import Homepage from '../../features/home/Home';
